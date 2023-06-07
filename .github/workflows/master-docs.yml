@@ -79,17 +79,6 @@ jobs:
           -Pschemagen,release,coverage -B $MAVEN_OPTS
         env:
           PUSHKEY: ${{ secrets.PUSHKEY }}
-      - name: Sonar
-        run: >
-          ./mvnw verify org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar
-          -DsurefireArgs="-Dspring.profiles.active=ASYNCHRONOUS,TEST"
-          -Dspring.rabbitmq.host=localhost
-          -Dsonar.login=$SONAR_TOKEN
-          -DSONAR_TOKEN=$SONAR_TOKEN
-          -Dci.buildNumber=$GITHUB_RUN_NUMBER
-          -Pcoverage -B $MAVEN_OPTS
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       - uses: AdoptOpenJDK/install-jdk@v1
         with:
           version: '11'
