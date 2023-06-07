@@ -1,24 +1,20 @@
 # Purpose
 The OpenWMS.org Common Service provides essential functionality to deal with `Locations`, `LocationGroups` and `TransportUnits`. An example
-often referred to is the ability to move a `TransportUnit` from a `Location` A to a `Location` B. Beside this also other secondary resources
-like `TransportUnitTypes` or rulesets like the `PlacingRule` to define what kind of `TransportUnit` can be put on what type of `Location` 
-are managed by this service. 
-
-![ClassDiagram][1]
+is the ability to move a `TransportUnit` from a `Location` A to a `Location` B. Beside this also other secondary resources like
+`TransportUnitTypes` or rule-sets like the `PlacingRule` (to define what kind of `TransportUnit` can be put on what type of `Location`) are 
+managed by this service. 
 
 # Resources
 
 [![Build status](https://github.com/openwms/org.openwms.common.service/actions/workflows/master-build.yml/badge.svg)](https://github.com/openwms/org.openwms.common.service/actions/workflows/master-build.yml)
-[![Quality](https://sonarcloud.io/api/project_badges/measure?project=org.openwms:org.openwms.common.service&metric=alert_status)](https://sonarcloud.io/dashboard?id=org.openwms:org.openwms.common.service)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Maven central](https://img.shields.io/maven-central/v/org.openwms/org.openwms.common.service)](https://search.maven.org/search?q=a:org.openwms.common.service)
 [![Docker pulls](https://img.shields.io/docker/pulls/openwms/org.openwms.common.service)](https://hub.docker.com/r/openwms/org.openwms.common.service)
 [![Join the chat at https://gitter.im/openwms/org.openwms](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/openwms/org.openwms?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-**Find further Documentation on [Microservice Website](https://openwms.github.io/org.openwms.common.service)**
+**Find further Documentation on [Microservice Website](https://wiki.butan092.startdedicated.de/projects/common-service/wiki/content)**
 
 # Build
-
 The module depends on OpenWMS.org CORE dependencies and one additional optional COMMON dependency that is only used in the enterprise
 version and offers an additional API for the UI.
 
@@ -38,7 +34,6 @@ $ ./mvnw package -DsurefireArgs=-Dspring.profiles.active=ASYNCHRONOUS,TEST
 ```
 
 # Run
-
 ## Run On Command Line
 After the binary has been built it can be started from command line. By default no other infrastructure services are required to run this
 service.
@@ -58,7 +53,7 @@ This behavior can be enabled by activating the Spring Profile `DISTRIBUTED`. Add
 communication that requires a running [RabbitMQ](https://www.rabbitmq.com) instance - just add another profile `ASYNCHRONOUS`. If the latter
 is not applied all asynchronous AMQP endpoints are disabled and the service does not send any events nor does it receive application events
 from remote services. The AMQP protocol with the [RabbitMQ](https://www.rabbitmq.com) is currently the only supported message broker. But
-switching to others, like [HiveMQ (MQTT)](https://www.hivemq.com) or [Apacha Kafka](https://kafka.apache.org/), is not rocket science.
+switching to others, like [HiveMQ (MQTT)](https://www.hivemq.com) or [Apacha Kafka](https://kafka.apache.org/) is not rocket science.
 
 ```
 $ java -jar target/openwms-common-service-exec.jar --spring.profiles.active=DISTRIBUTED,ASYNCHRONOUS
