@@ -33,6 +33,8 @@ To also build and run with [RabbitMQ](https://www.rabbitmq.com) support call:
 $ ./mvnw package -DsurefireArgs=-Dspring.profiles.active=ASYNCHRONOUS,TEST
 ```
 
+This requires a [RabbitMQ](https://www.rabbitmq.com) server running locally with default settings.
+
 # Run
 ## Run On Command Line
 After the binary has been built it can be started from command line. By default no other infrastructure services are required to run this
