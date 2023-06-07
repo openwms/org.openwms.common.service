@@ -31,13 +31,13 @@
     <body>
         <menu name="Documentation">
             <item name="Home" href="index.html" />
-            <item name="REST API Documentation" href="rest/${project.version}/api.html" />
+            <item name="REST API Documentation" href="https://openwms.github.io/org.openwms.common.service.lib/rest/${project.version}/api.html" />
             <item name="Wiki" href="https://wiki.butan092.startdedicated.de/projects/common-service/wiki" />
-            <item name="Configuration" href="configuration.html" />
-            <item name="Javadoc" href="apidocs/index.html" />
-            <item name="Database Schema" href="${project.version}/schemaspy/relationships.html" />
-            <item name="Sonar" href="https://sonarcloud.io/dashboard?id=org.openwms:${project.artifactId}" />
-            <item name="Jacoco" href="jacoco-merged-test-coverage-report/index.html" />
+            <item name="Configuration" href="https://openwms.github.io/org.openwms.common.service.lib/configuration.html" />
+            <item name="Javadoc" href="https://openwms.github.io/org.openwms.common.service.lib/apidocs/index.html" />
+            <item name="Database Schema" href="https://openwms.github.io/org.openwms.common.service.lib/${project.version}/schemaspy/relationships.html" />
+            <item name="Sonar" href="https://sonarcloud.io/dashboard?id=org.openwms:org.openwms.common.service.lib" />
+            <item name="Jacoco" href="https://openwms.github.io/org.openwms.common.service.lib/jacoco-merged-test-coverage-report/index.html" />
         </menu>
         <menu name="Project" ref="reports" />
     </body>
