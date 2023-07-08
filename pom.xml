@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.openwms</groupId>
@@ -276,117 +278,95 @@
         <dependency>
             <groupId>org.openwms</groupId>
             <artifactId>org.openwms.core.units</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.openwms</groupId>
             <artifactId>org.openwms.core.util</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.openwms</groupId>
             <artifactId>org.openwms.common.service.lib</artifactId>
             <classifier>all</classifier>
-            <optional>true</optional>
         </dependency>
 
         <!-- Spring Dependencies -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-hateoas</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bootstrap</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bus-amqp</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-sleuth</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-sleuth-zipkin</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-envers</artifactId>
-            <optional>true</optional>
         </dependency>
 
         <!-- both for retry -->
         <dependency>
             <groupId>org.springframework.retry</groupId>
             <artifactId>spring-retry</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aspects</artifactId>
-            <optional>true</optional>
         </dependency>
 
         <!-- Observability: Monitoring -->
@@ -394,7 +374,6 @@
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-registry-prometheus</artifactId>
             <scope>runtime</scope>
-            <optional>true</optional>
         </dependency>
 
         <!-- 3rd party dependencies -->
@@ -402,51 +381,42 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <scope>runtime</scope>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jdk8</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <!-- Need to upgrade Guava from version 11 because of CVE -->
             <!-- Required by eureka-client -->
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>com.jayway.jsonpath</groupId>
             <artifactId>json-path</artifactId>
-			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>com.querydsl</groupId>
 			<artifactId>querydsl-apt</artifactId>
 			<scope>provided</scope>
-			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>com.querydsl</groupId>
 			<artifactId>querydsl-collections</artifactId>
-			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>com.querydsl</groupId>
 			<artifactId>querydsl-core</artifactId>
-			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>com.querydsl</groupId>
 			<artifactId>querydsl-jpa</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <!-- Required to use PATCH -->
@@ -457,50 +427,41 @@
         <dependency>
             <groupId>io.interface21</groupId>
             <artifactId>ameba-lib</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>net.logstash.logback</groupId>
             <artifactId>logstash-logback-encoder</artifactId>
             <scope>runtime</scope>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency> <!-- Internal conflict in spring-cloud-starter-bus-amqp -->
             <groupId>org.codehaus.plexus</groupId>
             <artifactId>plexus-utils</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.jolokia</groupId>
             <artifactId>jolokia-core</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct-processor</artifactId>
-            <optional>true</optional>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>tech.units</groupId>
             <artifactId>indriya</artifactId>
-            <optional>true</optional>
         </dependency>
 
         <!-- Test dependencies -->
