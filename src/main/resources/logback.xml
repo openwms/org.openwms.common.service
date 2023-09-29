@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration debug="false" scan="false" scanPeriod="30 seconds">
+<configuration debug="false" scan="true" scanPeriod="30 seconds">
 
     <property name="LOG_TEMP" value="/tmp/owms"/>
     <property name="MODULE_NAME" value="COMMON-Service"/>
 
     <include resource="logback-appenders.xml"/>
     <include resource="logback-loggers.xml"/>
-
-    <appender name="ELK" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
-        <destination>elk:5000</destination>
-        <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
-    </appender>
 
     <statusListener class="ch.qos.logback.core.status.NopStatusListener"/>
 
@@ -26,17 +21,22 @@
 
     <logger name="CORE_INTEGRATION_MESSAGING" level="INFO"/>
 
-    <springProfile name="PROD">
+    <springProfile name="ELK">
+        <appender name="ELK" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+            <destination>elk:5000</destination>
+            <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
+        </appender>
         <logger name="PRESENTATION_LAYER_EXCEPTION" level="ERROR"/>
         <logger name="SERVICE_LAYER_EXCEPTION" level="ERROR"/>
         <logger name="INTEGRATION_LAYER_EXCEPTION" level="ERROR"/>
         <logger name="CALLCONTEXT" level="OFF"/>
         <logger name="MEASURED" level="INFO"/>
         <root level="INFO">
+            <appender-ref ref="STDOUT"/>
             <appender-ref ref="ELK"/>
         </root>
     </springProfile>
-    <springProfile name="!PROD">
+    <springProfile name="!ELK">
     <logger name="PRESENTATION_LAYER_EXCEPTION" level="ERROR" additivity="false">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="EXCFILE"/>

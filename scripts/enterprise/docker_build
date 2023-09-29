@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t registry.butan092.startdedicated.de/interface21.io/org.openwms.common.service:latest .
+docker build -t registry.openwms.cloud/interface21.io/org.openwms.common.service:latest .

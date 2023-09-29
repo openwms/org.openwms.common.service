@@ -32,7 +32,7 @@
         <menu name="Documentation">
             <item name="Home" href="index.html" />
             <item name="REST API Documentation" href="https://openwms.github.io/org.openwms.common.service.lib/rest/${project.version}/api.html" />
-            <item name="Wiki" href="https://wiki.butan092.startdedicated.de/projects/common-service/wiki" />
+            <item name="Wiki" href="https://wiki.openwms.cloud/projects/common-service/wiki" />
             <item name="Configuration" href="https://openwms.github.io/org.openwms.common.service.lib/configuration.html" />
             <item name="Javadoc" href="https://openwms.github.io/org.openwms.common.service.lib/apidocs/index.html" />
             <item name="Database Schema" href="https://openwms.github.io/org.openwms.common.service.lib/${project.version}/schemaspy/relationships.html" />

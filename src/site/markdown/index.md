@@ -1,13 +1,12 @@
 # Purpose
-The OpenWMS.org Common Service provides essential functionality to deal with `Locations`, `LocationGroups` and `TransportUnits`. An example
-is the ability to move a `TransportUnit` from a `Location` A to a `Location` B. Beside this also other secondary resources like
-`TransportUnitTypes` or rule-sets like the `PlacingRule` (to define what kind of `TransportUnit` can be put on what type of `Location`) are 
-managed by this service. 
+The OpenWMS.org Common Service provides essential functionality to deal with `Locations`, `LocationGroups` and `TransportUnits`. For a
+simple example, it offers an API to move a `TransportUnit` from a `Location` A to a `Location` B. Besides that, also other secondary
+resources exist, like `TransportUnitTypes` or rule sets to define what type of `TransportUnit` can be put on what type of `Location`.
 
 # Resources
 
 [![Build status](https://github.com/openwms/org.openwms.common.service/actions/workflows/master-build.yml/badge.svg)](https://github.com/openwms/org.openwms.common.service/actions/workflows/master-build.yml)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](../../../LICENSE)
 [![Maven central](https://img.shields.io/maven-central/v/org.openwms/org.openwms.common.service)](https://search.maven.org/search?q=a:org.openwms.common.service)
 [![Docker pulls](https://img.shields.io/docker/pulls/openwms/org.openwms.common.service)](https://hub.docker.com/r/openwms/org.openwms.common.service)
 [![Join the chat at https://gitter.im/openwms/org.openwms](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/openwms/org.openwms?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
