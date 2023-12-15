@@ -1,5 +1,6 @@
 name: 'master_build'
 on:
+  repository_dispatch:
   push:
     branches: [ master ]
 
