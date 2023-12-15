@@ -11,13 +11,13 @@ resources exist, like `TransportUnitTypes` or rule sets to define what type of `
 [![Docker pulls](https://img.shields.io/docker/pulls/openwms/org.openwms.common.service)](https://hub.docker.com/r/openwms/org.openwms.common.service)
 [![Join the chat at https://gitter.im/openwms/org.openwms](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/openwms/org.openwms?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-**Find further Documentation on [Microservice Website](https://wiki.butan092.startdedicated.de/projects/common-service/wiki/content)**
+**Find further Documentation on [Microservice Website](https://openwms.github.io/org.openwms.common.service)**
 
 # Build
 The module depends on OpenWMS.org CORE dependencies and one additional optional COMMON dependency that is only used in the enterprise
 version and offers an additional API for the UI.
 
-![MavenDependencies][2]
+![MavenDependencies][1]
 
 Build a runnable fat jar with the execution of all unit and in-memory database integration tests, but without a required [RabbitMQ](https://www.rabbitmq.com)
 server to run: 
@@ -36,7 +36,7 @@ This requires a [RabbitMQ](https://www.rabbitmq.com) server running locally with
 
 # Run
 ## Run On Command Line
-After the binary has been built it can be started from command line. By default no other infrastructure services are required to run this
+After the binary has been built it can be started from command line. By default, no other infrastructure services are required to run this
 service.
 
 Run in standalone mode:
@@ -50,7 +50,7 @@ $ java -jar target/openwms-common-service-exec.jar --spring.profiles.active=DEMO
 ```
 
 In a distributed environment the service configuration is fetched from the central [OpenWMS.org Configuration Service](https://github.com/spring-labs/org.openwms.configuration).
-This behavior can be enabled by activating the Spring Profile `DISTRIBUTED`. Additionally it makes sense to enable asynchronous
+This behavior can be enabled by activating the Spring Profile `DISTRIBUTED`. Additionally, it makes sense to enable asynchronous
 communication that requires a running [RabbitMQ](https://www.rabbitmq.com) instance - just add another profile `ASYNCHRONOUS`. If the latter
 is not applied all asynchronous AMQP endpoints are disabled and the service does not send any events nor does it receive application events
 from remote services. The AMQP protocol with the [RabbitMQ](https://www.rabbitmq.com) is currently the only supported message broker. But
@@ -72,5 +72,4 @@ Instead of building the software from the sources and run it as Java program on 
 $ docker run openwms/org.openwms.common.service:latest
 ```
 
-[1]: src/site/resources/images/class-overview.png
-[2]: src/site/resources/images/maven-deps.drawio.png
+[1]: src/site/resources/images/maven-deps.drawio.png
