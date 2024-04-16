@@ -66,6 +66,7 @@
     </ciManagement>
 
     <properties>
+        <checker-qual.version>3.33.0</checker-qual.version>
         <common.service.lib.version>2.1.0-SNAPSHOT</common.service.lib.version>
         <common.service.ui.version>1.0.0-SNAPSHOT</common.service.ui.version>
         <core.units.version>0.5.1-SNAPSHOT</core.units.version>
@@ -229,6 +230,12 @@
                 <groupId>org.apache.maven.wagon</groupId>
                 <artifactId>wagon-provider-api</artifactId>
                 <version>${wagon-provider-api.version}</version>
+            </dependency>
+            <dependency>
+                <!-- Clash between Guava and postgres driver -->
+                <groupId>org.checkerframework</groupId>
+                <artifactId>checker-qual</artifactId>
+                <version>${checker-qual.version}</version>
             </dependency>
             <dependency>
                 <!-- Clash in org.springframework.cloud:spring-cloud-starter-stream-rabbit -->
