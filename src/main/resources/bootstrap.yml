@@ -49,6 +49,10 @@ ribbon:
   ReadTimeout: 30000
 
 owms:
+  common:
+    # strict: TransportUnits are directly deleted without
+    # on-accept: TransportUnits are only deleted when at least one participant accepted deletion
+    delete-transport-unit-mode: strict
   eureka:
     url: http://user:sa@localhost:8761
     zone: ${owms.eureka.url}/eureka/
@@ -143,6 +147,10 @@ owms:
         exchange-name: common.loc.commands
         routing-key: common.loc.command.in.*
         queue-name: common-loc-commands-queue
+      registration:
+        exchange-name: common.registration.commands
+        routing-key: common.registration.command.in.#.#
+        queue-name: common-registration-commands-queue
       tu:
         exchange-name: common.tu.commands
         routing-key: common.tu.command.in.*
