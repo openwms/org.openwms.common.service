@@ -17,6 +17,7 @@ spring:
       hibernate:
         jdbc:
           time_zone: UTC
+        dialect: org.hibernate.dialect.PostgreSQLDialect
       org:
         hibernate:
           envers:
