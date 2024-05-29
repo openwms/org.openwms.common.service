@@ -69,7 +69,7 @@
         <checker-qual.version>3.33.0</checker-qual.version>
         <common.service.lib.version>3.0.0-SNAPSHOT</common.service.lib.version>
         <common.service.ui.version>1.0.0-SNAPSHOT</common.service.ui.version>
-        <core.units.version>0.6.0-SNAPSHOT</core.units.version>
+        <core.units.version>0.7.0-SNAPSHOT</core.units.version>
         <core.version>3.0.0-SNAPSHOT</core.version>
         <guava.version>32.0.0-jre</guava.version>
         <httpclient.version>4.5.14</httpclient.version>
