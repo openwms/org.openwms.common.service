@@ -60,6 +60,8 @@ owms:
   srv:
     hostname: localhost
     protocol: http
+  tracing:
+    url: http://localhost:4317
 
 server:
   port: ${PORT:8120}
@@ -119,6 +121,9 @@ management:
   info:
     git:
       mode: simple
+  tracing:
+    sampling:
+      probability: 1.0
 
 ---
 spring:
@@ -159,6 +164,9 @@ owms:
     transactions:
       tx:
         exchange-name: common.tx.commands
+  dead-letter:
+    exchange-name: dle.common
+    queue-name: common-dl-queue
   events:
     common:
       lg:
@@ -167,6 +175,11 @@ owms:
         exchange-name: common.tu
       tut:
         exchange-name: common.tu
+    shipping:
+      exchange-name: shipping
+      split:
+        queue-name: common-split-queue
+        routing-key: split.event.created
 
 ---
 # Might run in standalone or distributed environment
