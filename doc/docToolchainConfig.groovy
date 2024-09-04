@@ -62,7 +62,8 @@ taskInputsFiles = ["${inputPath}/index.adoc"]
 // Configuration for customTasks
 // create a new Task with ./dtcw createTask
 customTasks = [
-/** customTasks **/
+'scripts/exportGithubIssues.gradle',
+		/** customTasks **/
 ]
 
 
@@ -546,3 +547,13 @@ openAI.with {
     //temperature = '0.3'
 }
 //end::openAIConfig[]
+
+github = [:]
+github.with {
+    user = "${System.getenv('GITHUB_USER')}"
+    password = "${System.getenv('GITHUB_PASSWORD')}"
+    root = "https://api.github.com/"
+    organization = "openwms"
+    repository = "org.openwms.common.service"
+    resultsPerPage = 100
+}
