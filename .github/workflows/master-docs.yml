@@ -61,6 +61,19 @@ jobs:
           sudo apt-get install graphviz gsfonts graphviz-doc
           git config --global user.email "ci@example.com"
           git config --global user.name "CI Server"
+      - uses: AdoptOpenJDK/install-jdk@v1
+        with:
+          version: '17'
+          architecture: x64
+      - name: Confluence Update
+        run: |
+          cd doc
+          ./dtcw install doctoolchain
+          ./dtcw generateHTML
+          mkdir --parents ../target/site/microsite/; mv build/html5/* $_
+      - uses: actions/setup-java@v1
+        with:
+          java-version: 21
       - name: Site
         run: >
           ./mvnw post-integration-test site scm-publish:publish-scm
