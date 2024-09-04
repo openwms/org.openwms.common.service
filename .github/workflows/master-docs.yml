@@ -69,7 +69,7 @@ jobs:
         run: |
           cd doc
           ./dtcw install doctoolchain
-          ./dtcw generateHTML
+          ./dtcw exportGithubIssues generateHTML
           mkdir --parents ../target/site/microsite/; mv build/html5/* $_
         env:
           GITHUB_USER: ${{ secrets.GH_USER }}
