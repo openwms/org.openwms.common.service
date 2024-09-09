@@ -37,6 +37,7 @@ public class CommonStarter {
      * @param args Some args
      */
     public static void main(String[] args) {
-        SpringApplication.run(CommonStarter.class, args);
+        var ctx = SpringApplication.run(CommonStarter.class, args);
+        ctx.start();
     }
 }
