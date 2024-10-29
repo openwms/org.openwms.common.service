@@ -91,11 +91,6 @@ info:
   scm-url: "@scm.url@"
   build-url: "@ciManagement.url@"
 
-logging:
-  file:
-    name: BOOT-COMMON-Service.log
-    path: "/tmp/owms"
-
 management:
   endpoints:
     web:
@@ -279,5 +274,3 @@ spring:
         default_schema: public
     hibernate:
       ddl-auto: update
-  main:
-    banner-mode: "off"
