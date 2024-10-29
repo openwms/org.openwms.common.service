@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.openwms</groupId>
@@ -66,6 +66,7 @@
     </ciManagement>
 
     <properties>
+        <ameba-lib.version>4.1-SNAPSHOT</ameba-lib.version>
         <checker-qual.version>3.33.0</checker-qual.version>
         <common.service.lib.version>3.0.0-SNAPSHOT</common.service.lib.version>
         <common.service.ui.version>1.0.0-SNAPSHOT</common.service.ui.version>
@@ -224,7 +225,7 @@
                 <version>${httpclient.version}</version>
             </dependency>
             <dependency>
-                <!-- Clash between Guava and postgres driver -->
+                <!-- Clash between spring-cloud-starter-netflix-eureka-client and postgres driver -->
                 <groupId>org.checkerframework</groupId>
                 <artifactId>checker-qual</artifactId>
                 <version>${checker-qual.version}</version>
@@ -345,17 +346,21 @@
 
         <!-- Observability: Monitoring -->
         <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-micrometer</artifactId>
+        </dependency>
+        <dependency>
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-registry-prometheus</artifactId>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>io.micrometer</groupId>
-            <artifactId>micrometer-tracing-bridge-brave</artifactId>
+            <artifactId>micrometer-tracing-bridge-otel</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.zipkin.reporter2</groupId>
-            <artifactId>zipkin-reporter-brave</artifactId>
+            <groupId>io.opentelemetry</groupId>
+            <artifactId>opentelemetry-exporter-otlp</artifactId>
         </dependency>
 
         <!-- 3rd party dependencies -->
