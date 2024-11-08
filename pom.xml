@@ -7,7 +7,7 @@
         <groupId>org.openwms</groupId>
         <artifactId>org.openwms.parent</artifactId>
         <version>26</version>
-        <relativePath />
+        <relativePath/>
     </parent>
     <artifactId>org.openwms.common.service</artifactId>
     <version>3.0.0-SNAPSHOT</version>
@@ -207,7 +207,7 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-				<!-- Clash in spring-cloud-starter-netflix-eureka-client -->
+                <!-- Clash in spring-cloud-starter-netflix-eureka-client -->
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
