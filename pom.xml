@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.openwms</groupId>
         <artifactId>org.openwms.parent</artifactId>
-        <version>26</version>
+        <version>26.1</version>
         <relativePath/>
     </parent>
     <artifactId>org.openwms.common.service</artifactId>
@@ -66,7 +66,6 @@
     </ciManagement>
 
     <properties>
-        <ameba-lib.version>4.1-SNAPSHOT</ameba-lib.version>
         <checker-qual.version>3.33.0</checker-qual.version>
         <common.service.lib.version>3.0.0-SNAPSHOT</common.service.lib.version>
         <common.service.ui.version>1.0.0-SNAPSHOT</common.service.ui.version>
