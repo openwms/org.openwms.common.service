@@ -6,6 +6,6 @@
 :toc:
 
 // where are images located?
-:imagesdir: ./images
+:imagesdir: images
 
 //:data-uri:

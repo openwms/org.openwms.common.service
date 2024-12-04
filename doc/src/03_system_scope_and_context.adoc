@@ -4,16 +4,16 @@
 === Business Context
 
 The Common Service is a central service used by many other services of the Transport Management (TMS) domain and the Warehouse Management
-(WMS) domain. It does not depend or use other OpenWMS.org services, hence it can be seen as one of the essential base services of each
+(WMS) domain. It does not depend on or use other OpenWMS.org services, hence it can be seen as one of the essential base services of each
 system.
 
-image:03-business_context-EN.drawio.png["Business Context"]
+image::03-business_context-EN.drawio.png["Business Context"]
 
 [cols="1,2" options="header"]
 |===
 | **Name** | **Responsibility**
 | Common Service | Base service of the COMMON domain responsible to manage `TransportUnits`, `Locations` and `LocationGroups`. Functionality if offered as a REST API over HTTP and an asynchronous command API
-| User Interface | An user interface, ie. for operators, may interact with the Common Service
+| User Interface | A user interface, i.e. for operators, may interact with the Common Service
 | Transport Management Services | All services of the automatic and manual transport management may access the Common Service directly
 | Warehouse Management Services | All services of the warehouse management domain may interact with the Common Service directly
 |===
@@ -35,17 +35,16 @@ Exposed resources to API clients
 |===
 
 === Technical Context
-
 The Technical Context illustrates interfaces (channels and transmission media) linking the system to its environment. In addition a mapping
 of domain specific input/output to the channels, i.e. an explanation with I/O uses which channel.
 
 The Common Service exposes several resources over HTTP REST. The current available and detailed interface description can be found https://openwms.github.io/org.openwms.common.service/rest/2.0.0-SNAPSHOT/api.html[here].
-In addition the service sends event notifications out to surrounding services about master data changes and actions that occur within the
+In addition, the service sends event notifications out to surrounding services about master data changes and actions that occur within the
 service.
 
 It offers an asynchronous API to trigger actions via commands from the outer world.
 
-image:03-technical_context-EN.png["Technical Context"]
+image::03-technical_context-EN.png["Technical Context"]
 
 [cols="1,2,3" options="header"]
 |===

@@ -1,0 +1,30 @@
+allprojects {
+    buildscript {
+        repositories {
+            mavenCentral()
+            maven {
+                credentials {
+                    username mavenUsername
+                    password mavenPassword
+                }
+                url mavenRepository
+            }
+        }
+        dependencies {
+            classpath 'org.codehaus.groovy.modules.http-builder:http-builder:0.7.1'
+            classpath 'org.postgresql:postgresql:42.6.0'
+            classpath 'com.h2database:h2:1.4.190'
+        }
+    }
+    repositories {
+        mavenCentral()
+        maven {
+            credentials {
+                username mavenUsername
+                password mavenPassword
+            }
+            url mavenRepository
+        }
+    }
+}
+println ">>> repository locations initialized via init.gradle"

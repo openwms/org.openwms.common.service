@@ -45,7 +45,7 @@ All types are located in the Java package `.location` with several sub-packages.
 | impl | Package | Contains all types that are private and implement the solution
 | spi | Package | Contains interfaces and classes that can be used to extend the service implementation
 | LocationApi | Class | An exposed class that defines the `Location` API and that can be used directly ba Java clients
-| LocationController | Class | Is a Spring `RestController` implementation of the `LocationApi` and resides in the main package
+| LocationController | Class | Is a Spring `RedirectController` implementation of the `LocationApi` and resides in the main package
 | LocationService | Interface | Used by the `LocationController` within the same package to avoid package dependencies (An interface is always public)
 | LocationServiceImpl | Class | Spring managed transactional service that is the implementation of the business logic and the transaction boundary. In a internal package and kept package-private
 | LocationRepository | Interface/Class | Either a Spring Data JPA implementation or some other technology that acts as a DAO and accesses the persistency layer in order to save and fetch `Locations`

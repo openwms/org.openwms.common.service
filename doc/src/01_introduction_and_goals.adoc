@@ -13,7 +13,7 @@ Open pending issues
 [options="header"]
 |===
 | Issue ID | Planned Milestone | Title
-include::openGitHubIssues.adoc[]
+include::snippets/openGitHubIssues.adoc[]
 |===
 
 All functionality that is currently included, has already been implemented have issues assigned that are closed. A list of all closed
@@ -26,7 +26,7 @@ Closed issues, either implemented or rejected.
 [options="header"]
 |===
 | Issue ID | State | Assigned Milestone | Title
-include::closedGitHubIssues.adoc[]
+include::snippets/closedGitHubIssues.adoc[]
 |===
 ****
 

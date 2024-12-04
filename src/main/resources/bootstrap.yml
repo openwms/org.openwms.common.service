@@ -47,7 +47,10 @@ owms:
     # on-accept: TransportUnits are only deleted when at least one participant accepted deletion
     delete-transport-unit-mode: strict
   eureka:
-    url: http://user:sa@localhost:8761
+    url: http://${owms.eureka.user.name}:${owms.eureka.user.password}@localhost:8761
+    user:
+      name: user
+      password: sa
     zone: ${owms.eureka.url}/eureka/
   srv:
     hostname: localhost
@@ -83,6 +86,9 @@ eureka:
       protocol: ${owms.srv.protocol}
       startup: ${random.int} # SBA
       zone: ${owms.eureka.zone}
+      prometheus.scrape: "true"
+      prometheus.path: "/actuator/prometheus"
+      prometheus.port: ${server.port}
     non-secure-port-enabled: true
     prefer-ip-address: true
     secure-port-enabled: false
@@ -99,6 +105,9 @@ management:
   health:
     rabbit:
       enabled: false
+  info:
+    git:
+      mode: simple
   metrics:
     distribution:
       percentiles-histogram:
@@ -106,25 +115,18 @@ management:
         http:
           server:
             requests: true
-    export:
-      prometheus:
-        enabled: true
     tags:
       application: ${spring.application.name}
-    web:
-      server:
-        request:
-          autotime:
-            enabled: true
-  info:
-    git:
-      mode: simple
-  tracing:
-    sampling:
-      probability: 1.0
   otlp:
     tracing:
       endpoint: ${owms.tracing.url}
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+  tracing:
+    sampling:
+      probability: 1.0
 
 ---
 spring:
@@ -233,11 +235,6 @@ spring:
     show-sql: false
   main:
     banner-mode: "off"
-  zipkin:
-    enabled: false
-    discovery-client-enabled: false
-    sender:
-      type: rabbit
 
 ---
 spring:

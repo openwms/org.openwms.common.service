@@ -9,8 +9,6 @@ buildscript {
         }
     }
     dependencies {
-        classpath libs.jsoup
-        classpath libs.groovy.xml
         classpath 'org.codehaus.groovy.modules.http-builder:http-builder:0.7.1'
     }
 }
@@ -44,15 +42,17 @@ task exportGithubIssues(
                 'Content-Type' : 'application/json; charset=utf-8',
                 'User-Agent' : user
         ]
-        def allIssues = new File(srcDir, 'src/allGitHubIssues.adoc')
+        println "${srcDir}/snippets"
+        def f = (new File("${srcDir}/snippets"))
+        f.mkdirs()
+        def allIssues = new File(srcDir, 'snippets/allGitHubIssues.adoc')
         allIssues.write("", 'utf-8')
-        def openIssues = new File(srcDir, 'src/openGitHubIssues.adoc')
+        def openIssues = new File(srcDir, 'snippets/openGitHubIssues.adoc')
         openIssues.write("", 'utf-8')
         def oiExist = false;
-        def closedIssues = new File(srcDir, 'src/closedGitHubIssues.adoc')
+        def closedIssues = new File(srcDir, 'snippets/closedGitHubIssues.adoc')
         closedIssues.write("", 'utf-8')
         def ciExist = false;
-        println "HHHHHHHHH"
 
         gitHub.get(
             path: "repos/${organization}/${repository}/issues",
@@ -84,6 +84,15 @@ task exportGithubIssues(
         }
         if (!ciExist) {
             openIssues.append("| | |", 'utf-8')
+        }
+    }
+}
+
+static void safeMkDirs(File file) {
+    File fileDir = file.getParentFile();
+    if (!fileDir.exists()) {
+        if (!fileDir.mkdirs()) {
+            throw new RuntimeException("Unable to create folder '" + fileDir + '')
         }
     }
 }

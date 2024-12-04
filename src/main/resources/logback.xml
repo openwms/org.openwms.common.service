@@ -25,13 +25,29 @@
             <destination>elk:5000</destination>
             <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
         </appender>
-        <logger name="PRESENTATION_LAYER_EXCEPTION" level="ERROR" additivity="true"/>
-        <logger name="SERVICE_LAYER_EXCEPTION" level="ERROR" additivity="true"/>
-        <logger name="INTEGRATION_LAYER_EXCEPTION" level="ERROR" additivity="true"/>
-        <logger name="CALLCONTEXT" level="DEBUG" additivity="true"/>
-        <logger name="PRESENTATION_LAYER_ACCESS" level="INFO" additivity="true"/>
-        <logger name="SERVICE_LAYER_ACCESS" level="INFO" additivity="true"/>
-        <logger name="INTEGRATION_LAYER_ACCESS" level="INFO" additivity="true"/>
+        <logger name="PRESENTATION_LAYER_EXCEPTION" level="ERROR">
+            <appender-ref ref="STDOUT"/>
+            <appender-ref ref="ELK"/>
+            <appender-ref ref="EXCFILE"/>
+        </logger>
+        <logger name="SERVICE_LAYER_EXCEPTION" level="ERROR">
+            <appender-ref ref="STDOUT"/>
+            <appender-ref ref="ELK"/>
+            <appender-ref ref="EXCFILE"/>
+        </logger>
+        <logger name="INTEGRATION_LAYER_EXCEPTION" level="ERROR">
+            <appender-ref ref="STDOUT"/>
+            <appender-ref ref="ELK"/>
+            <appender-ref ref="EXCFILE"/>
+        </logger>
+        <logger name="CALLCONTEXT" level="DEBUG" additivity="true">
+        </logger>
+        <logger name="PRESENTATION_LAYER_ACCESS" level="INFO" additivity="true">
+        </logger>
+        <logger name="SERVICE_LAYER_ACCESS" level="INFO" additivity="true">
+        </logger>
+        <logger name="INTEGRATION_LAYER_ACCESS" level="INFO" additivity="true">
+        </logger>
         <logger name="MEASURED" level="INFO">
             <appender-ref ref="STDOUT"/>
             <appender-ref ref="ELK"/>
@@ -39,6 +55,7 @@
         </logger>
         <root level="INFO">
             <appender-ref ref="STDOUT"/>
+            <appender-ref ref="LOGFILE"/> <!-- Required for export -->
             <appender-ref ref="ELK"/>
         </root>
     </springProfile>
