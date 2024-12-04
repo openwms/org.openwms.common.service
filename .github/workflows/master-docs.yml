@@ -84,10 +84,9 @@ jobs:
           -Dargs=-Dspring.profiles.active=ASYNCHRONOUS,TEST,TESTPG
           -Dspring.datasource.url=jdbc:postgresql://localhost:5432/testdb
           -Dspring.rabbitmq.host=localhost
-          -Dscmuser=$PUSHKEY
           -Dscmpublish.pubScmUrl=scm:git:https://openwms:$PUSHKEY@github.com/openwms/org.openwms.common.service.git
           -DdeveloperConnectionUrl=scm:git:https://openwms:$PUSHKEY@github.com/openwms/org.openwms.common.service.git
           -Dci.buildNumber=$GITHUB_RUN_NUMBER
           -Prelease,coverage -B $MAVEN_OPTS
         env:
-          PUSHKEY: ${{ secrets.PUSHKEY }}
+          PUSHKEY: ${{ secrets.GITHUB_TOKEN }}

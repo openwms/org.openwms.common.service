@@ -9,7 +9,7 @@ outputPath = 'build'
 // This path is appended to the docDir property specified in gradle.properties
 // or in the command line, and therefore must be relative to it.
 
-inputPath = '.';
+inputPath = 'src';
 
 // if you need to register custom Asciidoctor extensions, this is the right place
 // configure the name and path to your extension, relative to the root of your project
@@ -44,13 +44,13 @@ imageDirs = [
 
 // whether the build should fail when detecting broken image references
 // if this config is set to true all images will be embedded
-failOnMissingImages = true
+failOnMissingImages = false
 
 // these are directories (dirs) and files which Gradle monitors for a change
 // in order to decide if the docs have to be re-build
 taskInputsDirs = [
-                    "${inputPath}/src",
-                    "${inputPath}/images",
+                    "${inputPath}",
+//                    "${inputPath}/images",
 //                  "${inputPath}/src",
 //                  "${inputPath}/images",
                  ]
@@ -62,7 +62,12 @@ taskInputsFiles = ["${inputPath}/index.adoc"]
 // Configuration for customTasks
 // create a new Task with ./dtcw createTask
 customTasks = [
+'scripts/convertToDocBook.gradle',
+'scripts/convertToMarkdown.gradle',
+'scripts/convertToMediawiki.gradle',
 'scripts/exportGithubIssues.gradle',
+'scripts/publishToMediawiki.gradle',
+'scripts/publishToOpenProject.gradle',
 		/** customTasks **/
 ]
 
@@ -556,4 +561,30 @@ github.with {
     organization = "openwms"
     repository = "org.openwms.common.service"
     resultsPerPage = 100
+}
+
+openproject = [:]
+openproject.with {
+    dryRun = true
+    projectId = 11 // Column PROJECTS.IDENTIFIER
+    wikiId = 13 // Column WIKIS.WIKI_ID
+    parentPageId = 61 // Column WIKI_PAGES.ID
+    authorName = "admin"
+    jdbcurl = "jdbc:postgresql://65.108.197.225:5432/OPROJECTDB"
+    user = "OPROJECT"
+    password = "OPROJECT"
+    driver = "org.postgresql.Driver"
+    api = "https://wiki.openwms.cloud"
+    token = "bed4fd15135997a274ebcd8e6646510f119066d4ab40f71308c8e7258f882c17"
+}
+
+mediawiki = [:]
+mediawiki.with {
+    api = "https://wiki.datapart-factoring.de/api.php"
+    user = "Dpadmin@gitlab"
+    password = "917560vj67gb164q069uecvus95unbtc"
+    extension = ".mw"
+    imageExtensions = [".png", ".jpg", ".jpeg", ".svg"]
+    context = "Microservice"
+    page = "TestService"
 }

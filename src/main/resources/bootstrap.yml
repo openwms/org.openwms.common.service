@@ -47,7 +47,10 @@ owms:
     # on-accept: TransportUnits are only deleted when at least one participant accepted deletion
     delete-transport-unit-mode: strict
   eureka:
-    url: http://user:sa@localhost:8761
+    url: http://${owms.eureka.user.name}:${owms.eureka.user.password}@localhost:8761
+    user:
+      name: user
+      password: sa
     zone: ${owms.eureka.url}/eureka/
   srv:
     hostname: localhost
