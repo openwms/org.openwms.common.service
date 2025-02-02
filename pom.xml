@@ -35,8 +35,8 @@
 
     <properties>
         <checker-qual.version>3.43.0</checker-qual.version>
-        <common.service.lib.version>3.0.0-SNAPSHOT</common.service.lib.version>
-        <common.service.ui.version>1.0.0-SNAPSHOT</common.service.ui.version>
+        <common.service.lib.version>3.0.0</common.service.lib.version>
+        <common.service.ui.version>1.0.0</common.service.ui.version>
         <core.units.version>0.7.0</core.units.version>
         <core.version>3.0.0</core.version>
         <error_prone_annotations.version>2.28.0</error_prone_annotations.version>
