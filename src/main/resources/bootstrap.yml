@@ -17,7 +17,6 @@ spring:
       hibernate:
         jdbc:
           time_zone: UTC
-        dialect: org.hibernate.dialect.PostgreSQLDialect
       org:
         hibernate:
           envers:
@@ -77,7 +76,7 @@ eureka:
     # The cadence of lease renewal, i.e. how often a heartbeat is sent to Eureka server.
     # In this case every 2 seconds. Use this only for development / debugging. In production use the ...
     # Default: 30s
-    lease-renewal-interval-in-seconds:    2
+    lease-renewal-interval-in-seconds: 2
     metadata-map:
       group: COMMON
       config-protocol: http # The protocol used to access the config server
