@@ -36,7 +36,7 @@
             <item name="Wiki" href="https://wiki.openwms.cloud/projects/common-service/wiki" />
             <item name="Configuration" href="https://openwms.github.io/org.openwms.common.service.lib/configuration.html" />
             <item name="Javadoc" href="https://openwms.github.io/org.openwms.common.service.lib/apidocs/index.html" />
-            <item name="Database Schema" href="https://openwms.github.io/org.openwms.common.service.lib/${project.version}/schemaspy/relationships.html" />
+            <item name="Database Schema" href="https://openwms.github.io/org.openwms.common.service.lib/schemaspy/relationships.html" />
             <item name="Sonar" href="https://sonarcloud.io/dashboard?id=org.openwms:org.openwms.common.service.lib" />
             <item name="Jacoco" href="https://openwms.github.io/org.openwms.common.service.lib/jacoco-merged-test-coverage-report/index.html" />
         </menu>
