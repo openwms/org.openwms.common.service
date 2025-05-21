@@ -1,4 +1,6 @@
 FROM amazoncorretto:21-alpine as builder
+MAINTAINER interface21.io <product@openwms.org>
+ENV LANG en_GB.UTF-8
 WORKDIR application
 ARG JAR_FILE=target/openwms-common-service-exec.jar
 COPY ${JAR_FILE} application.jar
