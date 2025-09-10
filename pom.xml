@@ -6,11 +6,11 @@
     <parent>
         <groupId>org.openwms</groupId>
         <artifactId>org.openwms.parent</artifactId>
-        <version>27.3</version>
+        <version>27.5</version>
         <relativePath/>
     </parent>
     <artifactId>org.openwms.common.service</artifactId>
-    <version>3.0.1-SNAPSHOT</version>
+    <version>3.1.0-SNAPSHOT</version>
     <name>OpenWMS.org COMMON: Base Service</name>
     <description>Essential functionality on common resources like Locations, LocationGroups and TransportUnits</description>
     <url>https://openwms.github.io/${project.artifactId}/index.html</url>
@@ -34,15 +34,13 @@
     </developers>
 
     <properties>
-        <checker-qual.version>3.43.0</checker-qual.version>
         <common.service.lib.version>3.0.1-SNAPSHOT</common.service.lib.version>
         <common.service.ui.version>1.0.1-SNAPSHOT</common.service.ui.version>
         <core.units.version>0.7.0</core.units.version>
-        <core.version>3.0.0</core.version>
-        <error_prone_annotations.version>2.28.0</error_prone_annotations.version>
+        <core.version>3.1.0-SNAPSHOT</core.version>
         <httpclient.version>4.5.14</httpclient.version>
         <joda-time.version>2.12.7</joda-time.version>
-        <spring-cloud-dependencies.version>2024.0.1</spring-cloud-dependencies.version>
+        <spring-cloud-dependencies.version>2025.0.0</spring-cloud-dependencies.version>
         <surefireArgs>-Dspring.profiles.active=TEST</surefireArgs>
     </properties>
 
@@ -107,28 +105,16 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <!-- Clash in org.springframework.cloud:spring-cloud-starter-netflix-eureka-client -->
-                <groupId>com.google.errorprone</groupId>
-                <artifactId>error_prone_annotations</artifactId>
-                <version>${error_prone_annotations.version}</version>
-            </dependency>
-            <dependency>
                 <!-- Mismatch between Eureka Client and spring-cloud-starter-bus-amqp -->
                 <groupId>joda-time</groupId>
                 <artifactId>joda-time</artifactId>
                 <version>${joda-time.version}</version>
             </dependency>
             <dependency>
-                <!-- Internal clash in Spring Cloud -->
+                <!-- Mismatch between Eureka Client and feign-httpclient -->
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpclient</artifactId>
                 <version>${httpclient.version}</version>
-            </dependency>
-            <dependency>
-                <!-- Clash between spring-cloud-starter-netflix-eureka-client and postgres driver -->
-                <groupId>org.checkerframework</groupId>
-                <artifactId>checker-qual</artifactId>
-                <version>${checker-qual.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.openwms</groupId>
@@ -216,6 +202,10 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-circuitbreaker-reactor-resilience4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bus-amqp</artifactId>
         </dependency>
         <dependency>
@@ -279,6 +269,11 @@
             <artifactId>jackson-datatype-jsr310</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.github.loki4j</groupId>
+            <artifactId>loki-logback-appender</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
@@ -288,21 +283,21 @@
             <artifactId>json-path</artifactId>
         </dependency>
         <dependency>
-			<groupId>com.querydsl</groupId>
-			<artifactId>querydsl-apt</artifactId>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.querydsl</groupId>
-			<artifactId>querydsl-collections</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.querydsl</groupId>
-			<artifactId>querydsl-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.querydsl</groupId>
-			<artifactId>querydsl-jpa</artifactId>
+            <groupId>com.querydsl</groupId>
+            <artifactId>querydsl-apt</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.querydsl</groupId>
+            <artifactId>querydsl-collections</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.querydsl</groupId>
+            <artifactId>querydsl-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.querydsl</groupId>
+            <artifactId>querydsl-jpa</artifactId>
         </dependency>
         <dependency>
             <!-- Required to use PATCH -->
@@ -374,11 +369,11 @@
 
     <repositories>
         <repository>
-            <id>sonatype-nexus-staging</id>
-            <name>Staging Repository</name>
-            <url>https://oss.sonatype.org/content/groups/staging/</url>
+            <id>ossrh-staging-api</id>
+            <name>OSSRH Staging Repository</name>
+            <url>https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2/</url>
             <snapshots>
-                <enabled>false</enabled>
+                <enabled>true</enabled>
             </snapshots>
             <releases>
                 <enabled>true</enabled>

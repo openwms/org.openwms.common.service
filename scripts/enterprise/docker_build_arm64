@@ -1,0 +1,2 @@
+#!/bin/bash
+docker build --platform linux/arm64 -t registry.openwms.cloud/interface21.io/org.openwms.common.service:latest .

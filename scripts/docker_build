@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t openwms/org.openwms.common.service:latest .
+docker build --platform linux/amd64 -t openwms/org.openwms.common.service:$1 .

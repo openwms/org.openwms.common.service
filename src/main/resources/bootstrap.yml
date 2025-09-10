@@ -46,7 +46,9 @@ owms:
     # on-accept: TransportUnits are only deleted when at least one participant accepted deletion
     delete-transport-unit-mode: strict
   eureka:
-    url: http://${owms.eureka.user.name}:${owms.eureka.user.password}@localhost:8761
+    hostname: localhost
+    port: 8761
+    url: http://${owms.eureka.user.name}:${owms.eureka.user.password}@${owms.eureka.hostname}:${owms.eureka.port}
     user:
       name: user
       password: sa
@@ -101,6 +103,9 @@ management:
     web:
       exposure:
         include: "*"
+  endpoint:
+    health:
+      show-details: always
   health:
     rabbit:
       enabled: false
@@ -264,7 +269,6 @@ spring:
     generate-ddl: true
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
         temp:
           use_jdbc_metadata_defaults: false
         default_schema: public

@@ -1,3 +1,0 @@
-#!/bin/bash
-echo "$DOCKER_PASSWORD" | docker login -u $DOCKER_USER --password-stdin https://registry.openwms.cloud
-docker push registry.openwms.cloud/interface21.io/org.openwms.common.service:$VERSION-$GITHUB_RUN_NUMBER
