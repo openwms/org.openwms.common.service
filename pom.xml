@@ -34,7 +34,7 @@
     </developers>
 
     <properties>
-        <common.service.lib.version>3.0.1-SNAPSHOT</common.service.lib.version>
+        <common.service.lib.version>3.1.0-SNAPSHOT</common.service.lib.version>
         <common.service.ui.version>1.0.1-SNAPSHOT</common.service.ui.version>
         <core.units.version>0.7.0</core.units.version>
         <core.version>3.1.0-SNAPSHOT</core.version>
