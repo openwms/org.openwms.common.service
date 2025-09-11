@@ -58,7 +58,7 @@ jobs:
               "password": "${{ secrets.OSSRH_PASSWORD }}"
             },
             {
-              "id": "ossrh-staging-api",
+              "id": "central-portal-snapshots",
               "username": "${{ secrets.OSSRH_USERNAME }}",
               "password": "${{ secrets.OSSRH_PASSWORD }}"
             },
