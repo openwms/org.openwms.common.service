@@ -22,10 +22,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
       - name: Set up JDK 21
         uses: actions/setup-java@v1
         with:
           java-version: 21
+
       - name: Cache Maven packages
         uses: actions/cache@v3
         with:
@@ -89,6 +91,8 @@ jobs:
           -Dspring.rabbitmq.host=localhost
           -Dci.buildNumber=$GITHUB_RUN_NUMBER
           -U -B -Prelease,release-central,gpg $MAVEN_OPTS
+        env:
+          GPG_TTY: $(tty)
 
       - name: Build Image
         run: ./scripts/docker_build ${{ steps.version-check.outputs.version }}
@@ -106,6 +110,8 @@ jobs:
           -Dspring.rabbitmq.host=localhost
           -Dci.buildNumber=$GITHUB_RUN_NUMBER
           -Penterprise,release,gpg -B $MAVEN_OPTS
+        env:
+          GPG_TTY: $(tty)
 
       - name: Build Enterprise Image
         run: ./scripts/enterprise/docker_build ${{ steps.version-check.outputs.version }}
