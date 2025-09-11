@@ -19,7 +19,7 @@
     <logger name="org.springframework" level="WARN"/>
     <logger name="org.openwms" level="DEBUG"/>
 
-    <logger name="CALLCONTEXT" level="TRACE"/>
+    <logger name="CALLCONTEXT" level="ERROR"/>
 
     <springProfile name="ELK">
         <appender name="ELK" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
