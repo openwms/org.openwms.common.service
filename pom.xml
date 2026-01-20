@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.openwms</groupId>
         <artifactId>org.openwms.parent</artifactId>
-        <version>27.6</version>
+        <version>27.7</version>
         <relativePath/>
     </parent>
     <artifactId>org.openwms.common.service</artifactId>
@@ -35,7 +35,7 @@
 
     <properties>
         <common.service.lib.version>3.1.0-SNAPSHOT</common.service.lib.version>
-        <common.service.ui.version>1.0.1-SNAPSHOT</common.service.ui.version>
+        <common.service.ui.version>1.1.0-SNAPSHOT</common.service.ui.version>
         <core.units.version>0.7.0</core.units.version>
         <core.version>3.1.0-SNAPSHOT</core.version>
         <httpclient.version>4.5.14</httpclient.version>
@@ -223,6 +223,12 @@
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-envers</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-common</artifactId>
+            <scope>provided</scope>
         </dependency>
 
         <!-- both for retry -->

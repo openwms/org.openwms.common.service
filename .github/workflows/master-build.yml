@@ -86,7 +86,7 @@ jobs:
       - name: Build & Deploy
         run: >
           ./mvnw deploy
-          -DsurefireArgs=-Dspring.profiles.active=ASYNCHRONOUS,TEST
+          -DsurefireArgs=-Dspring.profiles.active=AMQP,TEST
           -Dspring.rabbitmq.host=localhost
           -Dci.buildNumber=$GITHUB_RUN_NUMBER
           -U -B -Prelease,release-central,gpg $MAVEN_OPTS
@@ -103,7 +103,7 @@ jobs:
       - name: Build Enterprise
         run: >
           ./mvnw clean verify
-          -DsurefireArgs=-Dspring.profiles.active=ASYNCHRONOUS,TEST
+          -DsurefireArgs=-Dspring.profiles.active=AMQP,TEST
           -Dspring.rabbitmq.host=localhost
           -Dci.buildNumber=$GITHUB_RUN_NUMBER
           -Penterprise,release,gpg -B $MAVEN_OPTS
@@ -151,8 +151,8 @@ jobs:
         if: steps.version-check.outputs.should_publish == 'true'
         run: >
           ./mvnw post-integration-test site scm-publish:publish-scm
-          -DsurefireArgs=-Dspring.profiles.active=ASYNCHRONOUS,TEST,TESTPG
-          -Dargs=-Dspring.profiles.active=ASYNCHRONOUS,TEST,TESTPG
+          -DsurefireArgs=-Dspring.profiles.active=AMQP,TEST,TESTPG
+          -Dargs=-Dspring.profiles.active=AMQP,TEST,TESTPG
           -Dspring.datasource.url=jdbc:postgresql://localhost:5432/testdb
           -Dspring.rabbitmq.host=localhost
           -Dscmpublish.pubScmUrl=scm:git:https://openwms:$PUSHKEY@github.com/openwms/org.openwms.common.service.git

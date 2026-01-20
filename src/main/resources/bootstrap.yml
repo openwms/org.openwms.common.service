@@ -36,9 +36,6 @@ spring:
       date-time: "yyyy-MM-dd'T'HH:mm:ssXXX" # Must match the pattern how of @JsonFormat field annotation patterns
       date: yyyy-MM-dd
       time: HH:mm:ss
-  output:
-    ansi:
-      enabled: always
 
 owms:
   common:
@@ -136,7 +133,7 @@ management:
 spring:
   config:
     activate:
-      on-profile: ASYNCHRONOUS
+      on-profile: AMQP
   rabbitmq:
     listener:
       simple:

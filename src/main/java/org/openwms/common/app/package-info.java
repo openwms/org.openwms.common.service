@@ -14,6 +14,6 @@
  * limitations under the License.
  */
 /**
- * This package contains common used types of this service.
+ * This package contains configuration classes for the Spring context and lifecycle management.
  */
-package org.openwms.common;
+package org.openwms.common.app;

@@ -26,7 +26,7 @@ $ ./mvnw package
 To also build and run with [RabbitMQ](https://www.rabbitmq.com) support call:
 
 ```
-$ ./mvnw package -DsurefireArgs=-Dspring.profiles.active=ASYNCHRONOUS,TEST
+$ ./mvnw package -DsurefireArgs=-Dspring.profiles.active=AMQP,TEST
 ```
 
 This requires a [RabbitMQ](https://www.rabbitmq.com) server running locally with default settings.
@@ -48,13 +48,13 @@ $ java -jar target/openwms-common-service-exec.jar --spring.profiles.active=DEMO
 
 In a distributed environment the service configuration is fetched from the central [OpenWMS.org Configuration Service](https://github.com/spring-labs/org.openwms.configuration).
 This behavior can be enabled by activating the Spring Profile `DISTRIBUTED`. Additionally, it makes sense to enable asynchronous
-communication that requires a running [RabbitMQ](https://www.rabbitmq.com) instance - just add another profile `ASYNCHRONOUS`. If the latter
+communication that requires a running [RabbitMQ](https://www.rabbitmq.com) instance - just add another profile `AMQP`. If the latter
 is not applied all asynchronous AMQP endpoints are disabled and the service does not send any events nor does it receive application events
 from remote services. The AMQP protocol with the [RabbitMQ](https://www.rabbitmq.com) is currently the only supported message broker. But
 switching to others, like [HiveMQ (MQTT)](https://www.hivemq.com) or [Apacha Kafka](https://kafka.apache.org/) is not rocket science.
 
 ```
-$ java -jar target/openwms-common-service-exec.jar --spring.profiles.active=DISTRIBUTED,ASYNCHRONOUS
+$ java -jar target/openwms-common-service-exec.jar --spring.profiles.active=DISTRIBUTED,AMQP
 ```
 This requires a [RabbitMQ](https://www.rabbitmq.com) server running locally with default settings.
 

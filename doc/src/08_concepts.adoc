@@ -10,5 +10,5 @@ configuration to all services and manage this in a single place.
 
 If the configuration of the service is being updated on the configuration server, the service needs to be restarted in order to fetch the
 configuration at startup. A second and better approach is to update the configuration of the service at runtime without any service
-downtime. This can either happen via Spring Actuator endpoints (in a `SYNCHRONOUS` environment) or via RabbitMQ events in an `ASYNCHRONOUS`
+downtime. This can either happen via Spring Actuator endpoints (in a `SYNCHRONOUS` environment) or via RabbitMQ events in an `AMQP`
 environment with a RabbitMQ message broker.
