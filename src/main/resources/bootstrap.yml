@@ -37,6 +37,12 @@ spring:
       date: yyyy-MM-dd
       time: HH:mm:ss
 
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false
+
 owms:
   common:
     # strict: TransportUnits are directly deleted without

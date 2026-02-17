@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t registry.openwms.cloud/interface21.io/org.openwms.common.service:$1 .
+docker build --platform linux/amd64 -t registry.openwms.cloud/interface21.io/org.openwms.common.service:$1 .
