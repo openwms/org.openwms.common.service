@@ -59,8 +59,6 @@ owms:
   srv:
     hostname: localhost
     protocol: http
-  tracing:
-    url: http://localhost:4317
 
 server:
   port: ${PORT:8120}
@@ -106,15 +104,28 @@ management:
     web:
       exposure:
         include: "*"
-  endpoint:
-    health:
-      show-details: always
   health:
     rabbit:
       enabled: false
   info:
     git:
       mode: simple
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+
+---
+spring:
+  config:
+    activate:
+      on-profile: OTLP
+
+owms:
+  tracing:
+    url: http://localhost:4317
+
+management:
   metrics:
     distribution:
       percentiles-histogram:
@@ -127,10 +138,6 @@ management:
   otlp:
     tracing:
       endpoint: ${owms.tracing.url}
-  prometheus:
-    metrics:
-      export:
-        enabled: true
   tracing:
     sampling:
       probability: 1.0
